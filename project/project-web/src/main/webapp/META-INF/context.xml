@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/project-web">
+  <!--    <Resource auth="Container"
+              driverClassName="org.postgresql.Driver"
+              logAbandoned="true"
+              maxWaitMillis="20000"
+              removeAbandonedOnBorrow="true"
+              removeAbandonedTimeout="100"
+              type="javax.sql.DataSource"
+              url="jdbc:postgresql://localhost:5432/project-cbr"
+              name="jdbc/.apps.project/.apps.project.db"
+              username="postgres"
+              password="548548"
+              validationQuery="SELECT 1"/>-->
+</Context>

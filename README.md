@@ -37,8 +37,8 @@ Endpoints:
 
   4. getXml:
   
-      GET /project-web/download/getFileLink?fileName=user.xml Получение информации о файле + ссылка на файл
-      GET /project-web/download/getFile?fileName=user.xml Получение файла
+    GET /project-web/download/getFileLink?fileName=user.xml Получение информации о файле + ссылка на файл
+    GET /project-web/download/getFile?fileName=user.xml Получение файла
   
 TODOs:
   1. Проверить валидацию (@Valid, @NotBlank, @NotNull, etc...)

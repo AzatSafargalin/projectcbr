@@ -37,7 +37,7 @@ public class SaveResourceImpl implements SaveResource {
         XmlProceed xmlProceed = saveXmlEntityUseCase.saveXml(xmlEntity.getXmlName());
         return new ru.cbr.project.view.SaveXmlResponse(
                 ResponseStatus.SUCCESS,
-                "Сохранение пары xml и xsl прошла успешно. Создана сущность XmlProceed: id=" + xmlProceed.getId());
+                "Сохранение xml прошло успешно. Создана сущность XmlProceed: id=" + xmlProceed.getId());
     }
 
     @Override

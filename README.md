@@ -29,9 +29,9 @@ Endpoints:
   3. saveXml
     POST /project-web/save/xml
 
-      <XmlEntity>
-        <xmlName>user.xml</xmlName>
-      </XmlEntity>
+          <XmlEntity>
+            <xmlName>user.xml</xmlName>
+          </XmlEntity>
 
   4. getXml:
     GET /project-web/download/getFileLink?fileName=user.xml Получение информации о файле + ссылка на файл

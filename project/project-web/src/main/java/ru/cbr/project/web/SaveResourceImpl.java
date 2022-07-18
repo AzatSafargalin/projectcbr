@@ -4,6 +4,7 @@ import javax.ws.rs.Path;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import ru.cbr.project.api.SaveResource;
+import ru.cbr.project.core.ResponseStatus;
 import ru.cbr.project.model.XmlProceed;
 import ru.cbr.project.model.XmlXsdBound;
 import ru.cbr.project.usecase.SaveXmlEntityUseCase;
@@ -32,15 +33,20 @@ public class SaveResourceImpl implements SaveResource {
     }
 
     @Override
-    public ru.cbr.project.view.ResponseView saveXml(final ru.cbr.project.command.XmlEntity xmlEntity) {
+    public ru.cbr.project.view.SaveXmlResponse saveXml(final ru.cbr.project.command.XmlEntity xmlEntity) {
         XmlProceed xmlProceed = saveXmlEntityUseCase.saveXml(xmlEntity.getXmlName());
-        return new ru.cbr.project.view.ResponseView(200, "Сохранение пары xml и xsl прошла успешно. Создана сущность XmlProceed: id=" + xmlProceed.getId(), null);
+        return new ru.cbr.project.view.SaveXmlResponse(
+                ResponseStatus.SUCCESS,
+                "Сохранение пары xml и xsl прошла успешно. Создана сущность XmlProceed: id=" + xmlProceed.getId());
     }
 
     @Override
-    public ru.cbr.project.view.ResponseView saveXmlXsdBound(final ru.cbr.project.command.XmlXsdPair xmlXsdPair) {
+    public ru.cbr.project.view.SaveXmlXsdBoundResponse saveXmlXsdBound(final ru.cbr.project.command.XmlXsdPair xmlXsdPair) {
         XmlXsdBound xmlXsdBound = saveXmlXsdBoundUseCase.saveXsd(xmlXsdPair.getXmlName(), xmlXsdPair.getXsdName());
-        return new ru.cbr.project.view.ResponseView(200, "Сохранение пары xml и xsl прошла успешно. Создана сущность XmlXsdBound: id=" + xmlXsdBound.getId(), null);
+
+        return new ru.cbr.project.view.SaveXmlXsdBoundResponse(
+                ResponseStatus.SUCCESS,
+                "Сохранение пары xml и xsl прошла успешно. Создана сущность XmlXsdBound: id=" + xmlXsdBound.getId());
     }
 
 }

@@ -12,6 +12,7 @@ import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
@@ -21,9 +22,10 @@ import lombok.ToString;
  */
 @Data
 @Entity
+@NoArgsConstructor
+@EqualsAndHashCode
 @AllArgsConstructor()
 @ToString(of = {"xmlEntity", "xsdEntity"})
-@NoArgsConstructor
 @Table(name = "XML_XSD_BOUND", indexes = @Index(name = "UNQ_XML_XSD_BOUND_XML_ENTITY", columnList = "XML_ENTITY_ID", unique = true))
 public class XmlXsdBound implements Serializable {
 

@@ -8,8 +8,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import ru.cbr.project.api.DownloadResource;
 import ru.cbr.project.core.FileStatus;
+import ru.cbr.project.core.ResponseStatus;
 import ru.cbr.project.usecase.ReceiveXmlFile;
-import ru.cbr.project.view.ResponseView;
 
 @Slf4j
 @Path("download")
@@ -39,11 +39,11 @@ public class DownloadResourceImpl implements DownloadResource {
     }
 
     @Override
-    public ResponseView getFileLink(final String filename) {
+    public ru.cbr.project.view.DownloadResponse getFileLink(final String filename) {
         FileStatus fs = receiveXmlFile.getFileStatus(filename);
         return FileStatus.UNKNOWN.equals(fs)
-                ? new ResponseView(454, "Неизвестный файл", null)
-                : new ResponseView(200, "Статус файла: " + fs,
+                ? new ru.cbr.project.view.DownloadResponse(ResponseStatus.FAIL, "Неизвестный файл", null)
+                : new ru.cbr.project.view.DownloadResponse(ResponseStatus.SUCCESS, "Статус файла: " + fs,
                         "http://localhost:8080/project-web/test/getFile?fileName=" + filename);
     }
 

@@ -92,7 +92,6 @@ public class ValidateXmlUseCaseImpl implements ValidateXmlUseCase {
     public XmlValid validateXml(final String xmlName) {
 
         log.info("Начало работы сервиса validateXml: xml={}", xmlName);
-
         if (Strings.isBlank(xmlName)) {
             log.error("Передано пустое имя файла");
             throw new WebApplicationException("Название файла не может быть пустым");

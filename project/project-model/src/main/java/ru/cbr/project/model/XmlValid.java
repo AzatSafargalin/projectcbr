@@ -12,6 +12,7 @@ import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
@@ -21,10 +22,11 @@ import lombok.ToString;
  */
 @Data
 @Entity
-@AllArgsConstructor()
-@Table(name = "XML_VALID", indexes = @Index(name = "UNQ_XML_VALID_XML_ENTITY", columnList = "XML_ENTITY_ID", unique = true))
-@ToString(of = {"xmlEntity"})
 @NoArgsConstructor
+@EqualsAndHashCode
+@AllArgsConstructor()
+@ToString(of = {"xmlEntity"})
+@Table(name = "XML_VALID", indexes = @Index(name = "UNQ_XML_VALID_XML_ENTITY", columnList = "XML_ENTITY_ID", unique = true))
 public class XmlValid implements Serializable {
 
     @Id

@@ -1,9 +1,11 @@
 package ru.cbr.project.view;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+import ru.cbr.project.core.ResponseStatus;
 
 /**
  *
@@ -11,31 +13,24 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlRootElement(name = "response")
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "responseType", propOrder = {"status", "message",})
-public class ResponseView {
+@XmlType(name = "response", propOrder = {"status", "message"})
+public class ResponseBase implements Serializable {
 
-    private final Integer status;
+    private final ResponseStatus status;
 
     private final String message;
 
-    private final String link;
-
-    public ResponseView(Integer status, String message, String link) {
+    public ResponseBase(ResponseStatus status, String message) {
         this.status = status;
         this.message = message;
-        this.link = link;
     }
 
-    public Integer getStatus() {
+    public ResponseStatus getStatus() {
         return status;
     }
 
     public String getMessage() {
         return message;
-    }
-
-    public String getLink() {
-        return link;
     }
 
 }

@@ -10,6 +10,7 @@ import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
@@ -19,9 +20,10 @@ import lombok.ToString;
  */
 @Data
 @Entity
+@NoArgsConstructor
+@EqualsAndHashCode
 @AllArgsConstructor()
 @ToString(of = {"name"})
-@NoArgsConstructor
 @Table(name = "XML_ENTITIES")
 public class XmlEntity implements Serializable {
 

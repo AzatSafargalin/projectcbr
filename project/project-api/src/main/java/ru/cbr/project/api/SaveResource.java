@@ -6,7 +6,6 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import ru.cbr.project.view.ResponseView;
 
 /**
  *
@@ -26,7 +25,7 @@ public interface SaveResource {
     @Path("/xml")
     @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-    public ResponseView saveXml(@Valid ru.cbr.project.command.XmlEntity xmlEntity);
+    public ru.cbr.project.view.SaveXmlResponse saveXml(@Valid ru.cbr.project.command.XmlEntity xmlEntity);
 
     /**
      * Создание связи XML <-> XSD
@@ -39,6 +38,6 @@ public interface SaveResource {
     @Path("/xmlXsdBound")
     @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-    public ResponseView saveXmlXsdBound(@Valid ru.cbr.project.command.XmlXsdPair xmlXsdPair);
+    public ru.cbr.project.view.SaveXmlXsdBoundResponse saveXmlXsdBound(@Valid ru.cbr.project.command.XmlXsdPair xmlXsdPair);
 
 }

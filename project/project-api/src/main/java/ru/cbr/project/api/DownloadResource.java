@@ -9,7 +9,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import ru.cbr.project.view.ResponseView;
 
 /**
  *
@@ -20,8 +19,9 @@ public interface DownloadResource {
 
     /**
      * Получение файла по имени
+     *
      * @param filename
-     * @return 
+     * @return
      */
     @GET
     @Valid
@@ -32,13 +32,14 @@ public interface DownloadResource {
 
     /**
      * Получение статуса файла + ссылки для скачивания
+     *
      * @param filename
-     * @return 
+     * @return
      */
     @GET
     @Valid
     @Path("/getFileLink")
     @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-    public ResponseView getFileLink(@Valid @NotBlank @QueryParam("fileName") String filename);
+    public ru.cbr.project.view.DownloadResponse getFileLink(@Valid @NotBlank @QueryParam("fileName") String filename);
 }

@@ -5,6 +5,7 @@ import com.fasterxml.jackson.jaxrs.xml.JacksonXMLProvider;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.stereotype.Component;
+import ru.cbr.project.commons.GenericExceptionMapper;
 import ru.cbr.project.web.DownloadResourceImpl;
 import ru.cbr.project.web.SaveResourceImpl;
 import ru.cbr.project.web.ValidateResourceImpl;

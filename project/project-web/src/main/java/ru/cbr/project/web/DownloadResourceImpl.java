@@ -2,6 +2,7 @@ package ru.cbr.project.web;
 
 import javax.ws.rs.Path;
 import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ public class DownloadResourceImpl implements DownloadResource {
         byte[] byteArr = receiveXmlFile.getFile(filename);
         return Response
                 .ok(byteArr)
-                .header("Content-Type", "application/xml")
+                .header("Content-Type", MediaType.APPLICATION_OCTET_STREAM)
                 .header("Content-Disposition", "attachment; filename=" + filename)
                 .status(200)
                 .build();

@@ -1,4 +1,4 @@
-package ru.cbr.project.config;
+package ru.cbr.project.commons;
 
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
@@ -15,6 +15,7 @@ public class GenericExceptionMapper implements ExceptionMapper<WebApplicationExc
 
     @Override
     public Response toResponse(final WebApplicationException ex) {
+        //TODO: Переделать
         Integer status = ex.getResponse().getStatus();
         String outMess = ex.getMessage();
         if (outMess == null || outMess.isEmpty()) {

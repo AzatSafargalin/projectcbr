@@ -8,5 +8,10 @@ import ru.cbr.project.model.XmlValid;
  */
 public interface ValidateXmlUseCase {
 
+    /**
+     * Валидация XML по имени файла через связь в таблице XML_XSD_BOUND
+     * @param xmlName
+     * @return
+     */
     XmlValid validateXml(String xmlName);
 }

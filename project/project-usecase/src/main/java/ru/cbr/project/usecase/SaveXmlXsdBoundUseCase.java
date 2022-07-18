@@ -8,5 +8,11 @@ import ru.cbr.project.model.XmlXsdBound;
  */
 public interface SaveXmlXsdBoundUseCase {
 
+    /**
+     * Создание связи XML <-> XSD
+     * @param xmlName
+     * @param xsdName
+     * @return 
+     */
     XmlXsdBound saveXsd(String xmlName, String xsdName); 
 }

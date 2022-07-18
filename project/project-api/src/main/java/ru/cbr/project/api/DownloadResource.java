@@ -18,6 +18,11 @@ import ru.cbr.project.view.ResponseView;
 @Path("download")
 public interface DownloadResource {
 
+    /**
+     * Получение файла по имени
+     * @param filename
+     * @return 
+     */
     @GET
     @Valid
     @Path("/getFile")
@@ -25,6 +30,11 @@ public interface DownloadResource {
     @Produces(MediaType.APPLICATION_OCTET_STREAM)
     public Response getXmlFile(@Valid @NotBlank @QueryParam("fileName") String filename);
 
+    /**
+     * Получение статуса файла + ссылки для скачивания
+     * @param filename
+     * @return 
+     */
     @GET
     @Valid
     @Path("/getFileLink")

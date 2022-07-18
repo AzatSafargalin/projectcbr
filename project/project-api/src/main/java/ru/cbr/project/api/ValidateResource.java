@@ -15,6 +15,11 @@ import ru.cbr.project.view.ResponseView;
 @Path("validate")
 public interface ValidateResource {
 
+    /**
+     * Валидация XML файла на основе связи с XSD
+     * @param xmlEntity
+     * @return
+     */
     @POST
     @Valid
     @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})

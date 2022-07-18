@@ -15,6 +15,12 @@ import ru.cbr.project.view.ResponseView;
 @Path("save")
 public interface SaveResource {
 
+    /**
+     * Сохранение XML файла в таблицу XML_PROCEED
+     *
+     * @param xmlEntity
+     * @return
+     */
     @POST
     @Valid
     @Path("/xml")
@@ -22,6 +28,12 @@ public interface SaveResource {
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public ResponseView saveXml(@Valid ru.cbr.project.command.XmlEntity xmlEntity);
 
+    /**
+     * Создание связи XML <-> XSD
+     *
+     * @param xmlXsdPair
+     * @return
+     */
     @POST
     @Valid
     @Path("/xmlXsdBound")

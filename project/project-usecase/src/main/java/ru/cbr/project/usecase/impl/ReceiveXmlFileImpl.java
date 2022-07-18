@@ -68,8 +68,8 @@ public class ReceiveXmlFileImpl implements ReceiveXmlFile {
         try (InputStream xml = getClass().getClassLoader().getResourceAsStream(xmlPath)) {
             return IOUtils.toByteArray(xml);
         } catch (Exception ex) {
-            log.error("Something went wrong...");
-            throw new WebApplicationException("Something went wrong...");
+            log.error("Ошибка конвертирования файла xml: xmlName={}", xmlName);
+            throw new WebApplicationException("Ошибка конвертирования файла xml: xmlName=" + xmlName, 550);
         }
     }
 

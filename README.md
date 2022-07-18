@@ -9,7 +9,7 @@
 Для запуска проекта выполнить следующие действия:
   1. Создать пользователя и схему для проекта project-cbr, выдать все необходимые права пользователю
   2. Поправить строку подключения в project-model/src/main/resources/META-INF/persistence.xml (Выставить логин и пароль нового пользователя)
-  3. В application.properties так же выставить данные подключения, указать схему
+  3. В application-dev.properties так же выставить данные подключения, указать схему
   4. Собрать проект, перенести war файл в папку ${TOMCAT_HOME}/webapps, заменить context.xml запустить томкат, либо можно запускать из ide
 
 Endpoints:
@@ -36,13 +36,13 @@ Endpoints:
           </XmlEntity>
 
   4. getXml:
+  
     GET /project-web/download/getFileLink?fileName=user.xml Получение информации о файле + ссылка на файл
     GET /project-web/download/getFile?fileName=user.xml Получение файла
   
-TODOS:
-  1. Проверить валидацию (@Valid, @NotBlanc, @NotNull, etc...)
-  2. Перепроверить/переделать @Transactional
-  3. Написать Юнит-Тесты
-  4. Переделать GenericExceptionMapper
-  5. Настроить логгирование (logback.xml)
-  6. Настроить профили для тестирования/запуска приложения
+TODOs:
+  1. Проверить валидацию (@Valid, @NotBlank, @NotNull, etc...)
+  2. Перепроверить @Transactional
+  3. Настроить логгирование (logback.xml)
+  4. Настроить профили для тестирования/запуска приложения
+  5. Написать тесты для endpoint'ов

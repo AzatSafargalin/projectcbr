@@ -19,14 +19,14 @@ Endpoints:
             <xsdName>user.xsd</xsdName>
           </XmlXsdPair>
 
-  2. validateXml 
+  2. validateXml:
     POST /project-web/validate
 
           <XmlEntity>
             <xmlName>user.xml</xmlName>
           </XmlEntity>
 
-  3. saveXml
+  3. saveXml:
     POST /project-web/save/xml
 
           <XmlEntity>

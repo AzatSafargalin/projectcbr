@@ -31,7 +31,7 @@ public class GenericExceptionMapper implements ExceptionMapper<WebApplicationExc
         if (outMess == null || outMess.isEmpty()) {
             outMess = ex.toString();
         }
-        String contentType = httpServletRequest.getHeader("Content-Type");
+        String contentType = httpServletRequest.getHeader("Accept");
         return Response
                 .status(status)
                 .entity(new ResponseBase(status == 200 ? ResponseStatus.SUCCESS : ResponseStatus.FAIL, outMess))

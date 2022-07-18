@@ -62,7 +62,6 @@ public class SaveXmlEntityUseCaseImpl implements SaveXmlEntityUseCase {
     public XmlProceed saveXml(final String xmlName) {
         
         log.info("Начало работы сервиса saveXml: xmlName={}", xmlName);
-
         if (Strings.isBlank(xmlName)) {
             log.error("Передано пустое имя файла");
             throw new WebApplicationException("Название файла не может быть пустым");
@@ -79,14 +78,14 @@ public class SaveXmlEntityUseCaseImpl implements SaveXmlEntityUseCase {
         Optional<XmlProceed> xmlProceedOpt = xmlProceedService.findByXmlEntity(xmlEntity);
 
         if (xmlProceedOpt.isPresent()) {
-            log.error("Файл {} уже сохранен в локальной таблице", xmlEntity);
-            throw new WebApplicationException(String.format("Файл %s уже сохранен в локальной таблице", xmlEntity), 450);
+            log.error("Файл {} уже сохранен в локальной таблице", xmlName);
+            throw new WebApplicationException(String.format("Файл %s уже сохранен в локальной таблице", xmlName), 450);
         }
 
         Optional<XmlInvalid> xmlInvalid = xmlInvalidService.findByXmlEntity(xmlEntity);
         if (xmlInvalid.isPresent()) {
-            log.error("Файл {} помечен как невалидный", xmlInvalid);
-            throw new WebApplicationException(String.format("Файл %s помечен как невалидный", xmlInvalid), 450);
+            log.error("Файл {} помечен как невалидный", xmlName);
+            throw new WebApplicationException(String.format("Файл %s помечен как невалидный", xmlName), 450);
         }
 
         Optional<XmlValid> xmlValidOpt = xmlValidService.findByXmlEntity(xmlEntity);
@@ -94,12 +93,12 @@ public class SaveXmlEntityUseCaseImpl implements SaveXmlEntityUseCase {
         if (xmlValidOpt.isPresent()) {
             XmlProceed xmlProceed = new XmlProceed(null, xmlEntity);
             xmlProceed = xmlProceedService.save(xmlProceed);
-            log.info("Файл {} сохранен в таблицу proceed", xmlProceed);
+            log.info("Файл {} сохранен в таблицу proceed", xmlName);
             return xmlProceed;
         }
 
-        log.error("Файл {} не найден ни в одной таблице", xmlEntity);
-        throw new WebApplicationException(String.format("Файл %s не найден ни в одной таблице", xmlEntity), 450);
+        log.error("Файл {} не найден ни в одной таблице", xmlName);
+        throw new WebApplicationException(String.format("Файл %s не найден ни в одной таблице", xmlName), 450);
     }
 
 }

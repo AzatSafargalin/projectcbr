@@ -177,8 +177,8 @@ public class ValidateXmlUseCaseImpl implements ValidateXmlUseCase {
             }
             log.error("Ошибка валидации документа: xml={}, xsd={}\nmessage={}", xmlPath, xsdPath, ex.getMessage());
 
-            throw new WebApplicationException(String.format("Ошибка валидации документа: xml=%s, xsd=%s\nmessage=%s",
-                    xmlName, xsdName, ex.getMessage()), 450);
+            throw new WebApplicationException(String.format("Ошибка валидации документа: xml=%s, xsd=%s",
+                    xmlName, xsdName), 450);
         }
 
     }

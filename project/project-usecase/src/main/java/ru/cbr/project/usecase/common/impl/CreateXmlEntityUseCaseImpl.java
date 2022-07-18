@@ -37,8 +37,8 @@ public class CreateXmlEntityUseCaseImpl implements CreateXmlEntityUseCase {
 
     private void checkAlreadySavedInDatabase(final String xmlName) {
         if (xmlEntityService.findByName(xmlName).isPresent()) {
-            log.error("Xsd файл {} уже сохранен в базе", xmlName);
-            throw new WebApplicationException(String.format("Xsd файл %s уже сохранен в базе", xmlName), 450);
+            log.error("Xml файл {} уже сохранен в базе", xmlName);
+            throw new WebApplicationException(String.format("Xml файл %s уже сохранен в базе", xmlName), 450);
         }
     }
 

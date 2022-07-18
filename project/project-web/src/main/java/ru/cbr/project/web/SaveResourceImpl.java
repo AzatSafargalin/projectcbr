@@ -43,7 +43,6 @@ public class SaveResourceImpl implements SaveResource {
     @Override
     public ru.cbr.project.view.SaveXmlXsdBoundResponse saveXmlXsdBound(final ru.cbr.project.command.XmlXsdPair xmlXsdPair) {
         XmlXsdBound xmlXsdBound = saveXmlXsdBoundUseCase.saveXsd(xmlXsdPair.getXmlName(), xmlXsdPair.getXsdName());
-
         return new ru.cbr.project.view.SaveXmlXsdBoundResponse(
                 ResponseStatus.SUCCESS,
                 "Сохранение пары xml и xsl прошла успешно. Создана сущность XmlXsdBound: id=" + xmlXsdBound.getId());

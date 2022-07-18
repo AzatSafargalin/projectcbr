@@ -44,6 +44,7 @@ public class DownloadResourceImpl implements DownloadResource {
         return FileStatus.UNKNOWN.equals(fs)
                 ? new ru.cbr.project.view.DownloadResponse(ResponseStatus.FAIL, "Неизвестный файл", null)
                 : new ru.cbr.project.view.DownloadResponse(ResponseStatus.SUCCESS, "Статус файла: " + fs,
+                        // Не успел поправить =\
                         "http://localhost:8080/project-web/test/getFile?fileName=" + filename);
     }
 
